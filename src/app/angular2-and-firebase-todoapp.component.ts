@@ -10,6 +10,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class Angular2AndFirebaseTodoappAppComponent {
   title = 'angular2-and-firebase-todoapp works!';
+  items: Observable<any[]>;
   
-  constructor(af: AngularFire) { }
+   constructor(af: AngularFire) {
+     this.items = af.list('/');
+   }
 }
