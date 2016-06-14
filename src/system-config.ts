@@ -3,10 +3,12 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  '@vaadin': 'vendor/@vaadin'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  '@vaadin/angular2-polymer': { main: 'index.js', defaultExtension: 'js' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,6 +31,10 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/+add',
+  'app/+edit',
+  'app/+list',
+  'app/+home',
   /** @cli-barrel */
 ];
 
@@ -56,7 +62,8 @@ System.config({
     'rxjs': 'vendor/rxjs',
     'main': 'main.js',
     'firebase': 'vendor/firebase/lib/firebase-web.js',
-    'angularfire2': 'vendor/angularfire2'
+    'angularfire2': 'vendor/angularfire2',
+    'bootstrap': 'vendor/dootstrap/dist/'
   },
   packages: cliSystemConfigPackages
 });

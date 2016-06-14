@@ -1,0 +1,70 @@
+body {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  .loading-indicator > img {
+    max-height: 50px;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360);}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg)}
+}
+  
+.logo {
+  max-height: 3.5em;
+  animation-delay: 1.2s;
+}
+
+.animated {
+  -webkit-animation-duration: 350ms;
+  animation-duration: 350ms;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(5%, 0, 0);
+    transform: translate3d(5%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(5%, 0, 0);
+    transform: translate3d(5%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}

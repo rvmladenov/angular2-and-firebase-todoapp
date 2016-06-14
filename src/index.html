@@ -7,6 +7,10 @@
   {{content-for 'head'}}
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" media="all" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="styles/vendor/animate.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="styles/css/custom.css" />
 
   <!-- Service worker support is disabled by default.
        Install the worker script and uncomment to enable.
@@ -21,18 +25,28 @@
   -->
 </head>
 <body>
-  <angular2-and-firebase-todoapp-app>Loading...</angular2-and-firebase-todoapp-app>
+  <angular2-and-firebase-todoapp-app>
+    <div class="loading-indicator">
+      <img class="infinite animated rotateIn" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Loading_indicator_circle.svg/1024px-Loading_indicator_circle.svg.png" alt="" />
+    </div>
+  </angular2-and-firebase-todoapp-app>
 
   <script src="vendor/es6-shim/es6-shim.js"></script>
   <script src="vendor/reflect-metadata/Reflect.js"></script>
   <script src="vendor/systemjs/dist/system-polyfills.js"></script>
   <script src="vendor/systemjs/dist/system.src.js"></script>
   <script src="vendor/zone.js/dist/zone.js"></script>
+  <!--<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>-->
 
+<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="elements.html">
+  
   <script>
-    System.import('system-config.js').then(function () {
-      System.import('main');
-    }).catch(console.error.bind(console));
+    document.addEventListener('WebComponentsReady', function() {
+      System.import('system-config.js').then(function () {
+        System.import('main');
+      }).catch(console.error.bind(console));
+    });
   </script>
 </body>
 </html>

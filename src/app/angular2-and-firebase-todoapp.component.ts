@@ -1,18 +1,39 @@
-import { Component } from '@angular/core';
-import { AngularFire } from 'angularfire2';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { PolymerElement } from '@vaadin/angular2-polymer';
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { HeaderMenuComponent } from './shared/menu/header-menu.component';
+import { AddComponent } from './+add';
+import { EditComponent } from './+edit';
+import { ListComponent } from './+list';
+import { HomeComponent } from './+home';
 
 @Component({
   moduleId: module.id,
   selector: 'angular2-and-firebase-todoapp-app',
   templateUrl: 'angular2-and-firebase-todoapp.component.html',
-  styleUrls: ['angular2-and-firebase-todoapp.component.css']
+  directives: [
+    PolymerElement('vaadin-combo-box'),
+    PolymerElement('paper-input'),
+    PolymerElement('paper-ripple'),
+    ROUTER_DIRECTIVES
+  ],
+  providers: [ROUTER_PROVIDERS]
 })
-export class Angular2AndFirebaseTodoappAppComponent {
-  title = 'angular2-and-firebase-todoapp works!';
-  items: Observable<any[]>;
+@Routes([
+  {path: '/add', component: AddComponent},
+  {path: '/edit', component: EditComponent},
+  {path: '/list', component: ListComponent},
+  {path: '/', component: HomeComponent}
+])
+export class Angular2AndFirebaseTodoappAppComponent implements OnInit, OnDestroy {
+  active:boolean = false;
+
+  ngOnInit(): void {
+    this.active = true;
+  }
   
-   constructor(af: AngularFire) {
-     this.items = af.list('/');
-   }
+  ngOnDestroy(): void {
+    this.active = false;
+  }
+  
 }

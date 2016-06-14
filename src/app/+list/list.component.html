@@ -1,0 +1,9 @@
+<section class="container animated slideInRight">
+
+<ul *ngFor="let item of items | async">
+    <li class="text animated fadeIn labelShow">
+        <input type="text" [(ngModel)]="item.$value" />
+        <label (click)="toggleElem($event);">{{item.$value}}</label>
+    </li>
+  </ul>
+</section>
