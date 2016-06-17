@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { AngularFire } from 'angularfire2';
 import { Observable } from 'rxjs/Observable';
+import { TodosService } from '../shared/services/Todos.service';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +11,11 @@ import { Observable } from 'rxjs/Observable';
 export class ListComponent {
   items: Observable<any[]>;
 
-  constructor(af: AngularFire) {
-    this.items = af.list('/');
+  constructor(todos: TodosService) {
+    this.items = todos.getAll();
+  }
+
+  toggleElem($event: Event): void {
+    $event.srcElement.parentElement.classList.toggle('labelShow');
   }
 }

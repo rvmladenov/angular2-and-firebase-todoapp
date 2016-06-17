@@ -6,6 +6,7 @@ import { AddComponent } from './+add';
 import { EditComponent } from './+edit';
 import { ListComponent } from './+list';
 import { HomeComponent } from './+home';
+import { TodosService } from './shared/services/Todos.service';
 
 @Component({
   moduleId: module.id,
@@ -17,7 +18,7 @@ import { HomeComponent } from './+home';
     PolymerElement('paper-ripple'),
     ROUTER_DIRECTIVES
   ],
-  providers: [ROUTER_PROVIDERS]
+  providers: [ROUTER_PROVIDERS, TodosService]
 })
 @Routes([
   {path: '/add', component: AddComponent},

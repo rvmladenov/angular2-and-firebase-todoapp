@@ -1,3 +1,23 @@
-.labelShow > input {
+.editElem > span {
     display: none;
+}
+
+.editElem > span:hover {
+    cursor: pointer;
+}
+
+.editElem .input-grp {
+    display: inline-block;
+}
+
+.editElem.labelShow .input-grp {
+    display: none;
+}
+
+.editElem.labelShow > span {
+    display: inline-block;
+}
+
+.input-grp img {
+    max-height: 15px;
 }

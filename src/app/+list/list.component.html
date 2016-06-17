@@ -1,9 +1,13 @@
 <section class="container animated slideInRight">
 
 <ul *ngFor="let item of items | async">
-    <li class="text animated fadeIn labelShow">
-        <input type="text" [(ngModel)]="item.$value" />
-        <label (click)="toggleElem($event);">{{item.$value}}</label>
+    <li class="editElem text animated fadeIn labelShow">
+        <span (click)="toggleElem($event);">{{item.$value}}</span>
+        <div class="input-grp">
+          <input type="text" [(ngModel)]="item.$value" />
+          <button (click)="confirmChange($event);"><img src="images/confirm.png" alt="Confirm" /></button>
+          <button (click)="cancelChange($event);"><img src="images/cancel.png" alt="Confirm" /></button>
+        </div>
     </li>
   </ul>
 </section>
